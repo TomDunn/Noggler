@@ -1,0 +1,14 @@
+include includes/doctype
+html
+    include includes/head
+    body
+        include includes/main-nav
+        div.container-fluid
+            div.row-fluid
+                div.span2
+                    p= "sidebar"
+                div.span6
+                    div.page-header
+                        h1= "Create a post"
+                    include posts/create-edit
+        include includes/common-js

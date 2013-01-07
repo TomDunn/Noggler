@@ -1,0 +1,12 @@
+include ../includes/doctype
+html
+    include ../includes/head
+    body
+        include ../includes/main-nav
+        div.container-fluid
+            div.row-fluid
+                div.span2
+                    p= "sidebar"
+                div.span6
+                    include post
+        include ../includes/common-js

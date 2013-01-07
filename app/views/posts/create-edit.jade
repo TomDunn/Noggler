@@ -1,0 +1,29 @@
+form(method="POST")
+    legend= "Context"
+    label= "Title"
+    -if (locals.errors.title)
+        div.alert.alert-error
+            =locals.errors.title.msg
+    input(type="text", placeholder="Enter a title", name="title", class="create-edit-post", value=locals.post_data.title)
+    label= "Specify a URL for this post"
+    -if (locals.errors.url)
+        div.alert.alert-error
+            =locals.errors.url.msg
+    input(type="text", placeholder="Example: my-first-post", name="url", class="create-edit-post", value=locals.post_data.url)
+    -if (locals.post_data.post_date)
+        span.label= "Created on " + locals.post_data.post_date.toString()
+    label= "The post"
+    -if (locals.errors.post)
+        div.alert.alert-error
+            =locals.errors.post.msg
+    textarea(name="post", class="create-edit-post")
+        =locals.post_data.post
+    label= "Should this page be live?"
+    label.checkbox
+        -if (locals.post_data.is_live == true)
+            input(type="checkbox", name="is_live", value="true", checked="true")
+        -else
+            input(type="checkbox", name="is_live", value="true")
+        ="Yes"
+    button.btn(type="submit")
+        ="Submit"

@@ -1,0 +1,26 @@
+div.navbar.navbar-inverse
+    div.navbar-inner
+        a(class='brand', href='/')= "Noggler"
+        ul.nav
+            li.active
+                a(href='/') Home
+            li
+                a(href='/posts') Blog
+        ul.nav.pull-right
+            li.dropdown
+                - if (locals.currentUser)
+                    a.dropdown-toggle(data-toggle="dropdown", href='#')
+                        =locals.currentUser.displayName + " "
+                        b.caret
+                    ul.dropdown-menu
+                        li
+                            a(href='/logout')
+                                ="Logout"
+                - else
+                    a.dropdown-toggle(data-toggle="dropdown", href='#')
+                        ="Hello, anon"
+                        b.caret
+                    ul.dropdown-menu
+                        li
+                            a(href='/login')
+                                ="Login"
