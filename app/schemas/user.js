@@ -4,6 +4,7 @@ module.exports = function(_, mongoose) {
         displayName:    String,
         firstName:      String,
         lastName:       String,
+        isBlogger:      {type: Boolean, default: false},
         emails:         Object
     });
 

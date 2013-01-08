@@ -33,4 +33,10 @@ module.exports = function(passport, googleStrat, models) {
         res.redirect('/login');
     };
 
+    passport.isBlogger = function(req, res, next) {
+        if (req.isAuthenticated() && req.user.isBlogger)
+            return next();
+        res.redirect('/login');
+    };
+
 };

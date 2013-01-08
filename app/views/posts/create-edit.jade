@@ -16,8 +16,8 @@ form(method="POST")
     -if (locals.errors.post)
         div.alert.alert-error
             =locals.errors.post.msg
-    textarea(name="post", class="create-edit-post")
-        =locals.post_data.post
+    textarea.ckeditor(name="post", class="create-edit-post")
+        !=locals.post_data.post
     label= "Should this page be live?"
     label.checkbox
         -if (locals.post_data.is_live == true)
@@ -27,3 +27,8 @@ form(method="POST")
         ="Yes"
     button.btn(type="submit")
         ="Submit"
+
+form(method="POST")
+    input(type="hidden", name="_method", value="delete")
+    button.btn.btn-danger(type="Submit")
+        ="Delete!"

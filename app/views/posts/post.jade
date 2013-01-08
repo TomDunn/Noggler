@@ -1,4 +1,8 @@
 div.page-header
     h1= blog_post.title
-    span.label= "Posted by " + blog_post.blogger.toString() + " on " + blog_post.post_date
-p= blog_post.post
+    span.label= "Posted by " + blog_post.blogger.toString() + " on " + blog_post.post_date + " "
+    
+    a(href="/posts/" + blog_post.url, title="View full post")
+        ="View >>"
+p
+    !=blog_post.post

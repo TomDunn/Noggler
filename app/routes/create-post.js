@@ -1,17 +1,15 @@
 module.exports = function(app, _, models, passport) {
     var sanitize = require('validator').sanitize;
 
-    app.get('/create-edit/:editId?', passport.ensureAuthenticated, function(req, res) {
+    app.get('/create-edit/:editId?', passport.isBlogger, function(req, res, next) {
         var finish = function() {
             res.render('create-post');
         };
 
         if (req.params.editId) {
             models.blogPost.findById(req.params.editId, function(error, document) {
-                if (! document)
-                    return res.redirect('/create-edit');
+                if (! document) return next({type: '404'});
 
-                console.log(document);
                 res.locals.post_data = document;
                 finish();
             });
@@ -27,7 +25,7 @@ module.exports = function(app, _, models, passport) {
         }
     });
 
-    app.post('/create-edit/:editId?', passport.ensureAuthenticated, function(req,res) {
+    app.post('/create-edit/:editId?', passport.isBlogger, function(req, res, next) {
         var is_live = (req.body.is_live)    ? true              : false;
         var post    = (req.body.post)       ? req.body.post     : '';
         var title   = (req.body.title)      ? req.body.title    : '';
@@ -54,6 +52,9 @@ module.exports = function(app, _, models, passport) {
         } else {
 
             var finish = function(error, document) {
+                if (error) return next(error);
+                if (! document) return next({type: '404'});
+
                 res.redirect('/create-edit/' + document._id.toString());
             };
 
@@ -70,6 +71,15 @@ module.exports = function(app, _, models, passport) {
             }
         }
 
+    });
+
+    app.delete('/create-edit/:postId', passport.isBlogger, function(req, res, next) {
+        models.blogPost.findById(req.params.postId).remove(function(error, modified) {
+            if (error) return next(error);
+            if (modified == 0) return next({type: '404'});
+
+            res.redirect('create-edit');
+        });
     });
 
 };
