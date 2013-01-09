@@ -46,4 +46,4 @@ require('./app/routes')(app, _, models, passport);
 require('./app/routes/auth-routes')(app, _, models, passport);
 require('./app/routes/setup')(app, _, models, passport);
 
-app.listen(1080);
+app.listen(process.env.PORT || 1080);
