@@ -14,5 +14,9 @@
         "passport-google":  "latest",
         "express-validator":    "latest",
         "validator":            "latest"
+    },
+    "engines": {
+        "node": "latest",
+        "npm":  "latest"
     }
 }

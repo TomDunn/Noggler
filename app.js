@@ -11,7 +11,8 @@ app.set('views', __dirname + '/app/views');
 
 var mongoose    = require('mongoose');
 var schemas     = require('./app/schemas/')(_, mongoose);
-var db          = mongoose.createConnection('localhost', 'blog');
+var mongoUri    = process.env.MONGOHG_URL || 'mongodb://localhost/blog';
+var db          = mongoose.createConnection(mongoUri);
 var models      = require('./app/models')(db, schemas);
 
 // set up passport
