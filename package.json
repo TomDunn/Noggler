@@ -16,7 +16,7 @@
         "validator":            "latest"
     },
     "engines": {
-        "node": "latest",
-        "npm":  "latest"
+        "node": "0.6.12",
+        "npm":  "1.1.4"
     }
 }
