@@ -8,6 +8,7 @@ var app         = express();
 
 app.set('view engine', 'jade');
 app.set('views', __dirname + '/app/views');
+console.log(process.env);
 
 var mongoose    = require('mongoose');
 var schemas     = require('./app/schemas/')(_, mongoose);
