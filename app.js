@@ -8,7 +8,6 @@ var app         = express();
 
 app.set('view engine', 'jade');
 app.set('views', __dirname + '/app/views');
-console.log(process.env);
 
 var mongoose    = require('mongoose');
 var schemas     = require('./app/schemas/')(_, mongoose);
@@ -17,7 +16,9 @@ var db          = mongoose.createConnection(mongoUri);
 var models      = require('./app/models')(db, schemas);
 
 // set up passport
-require('./app/passport_config')(passport, googleStrat, models);
+var base_url    = process.env.BASE_URL || 'http://localhost:1080';
+console.log(base_url);
+require('./app/passport_config')(passport, googleStrat, models, base_url);
 
 app.use('/public', express.static(__dirname + '/public'));
 app.use(express.cookieParser());

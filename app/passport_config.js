@@ -1,8 +1,8 @@
-module.exports = function(passport, googleStrat, models) {
+module.exports = function(passport, googleStrat, models, base_url) {
 
     passport.use(new googleStrat({
-            returnURL:  'http://localhost:1080/auth/google/return',
-            realm:      'http://localhost:1080/'
+            returnURL:  base_url + '/auth/google/return',
+            realm:      base_url + '/'
         },
         function(identifier, profile, done) {
             var query = {openId: identifier};

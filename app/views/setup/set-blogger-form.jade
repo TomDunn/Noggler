@@ -1,0 +1,21 @@
+include ../includes/doctype
+html
+    include ../includes/head
+    body
+        include ../includes/main-nav
+        div.container-fluid
+            div.row-fluid
+                div.span2
+                div.span6
+                    div.page-header
+                        h1= "Blogger Setup"
+                    form(method="POST")
+                        input(type="text", name="blogger_secret", placeholder="Enter the secret")
+                        br
+                        button.btn(type="submit")
+                            ="Verify!"
+                div.span4
+
+        include ../includes/footer
+
+        include ../includes/common-js
