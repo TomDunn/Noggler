@@ -11,7 +11,7 @@ html(lang="en")
                     div.row-fluid
                         block left-sidebar
                             div.span2
-                                p= "sidebar"
+                                include includes/blogger-nav
                         block content-container
                             div.span6
                                 block content-header-container
@@ -22,7 +22,7 @@ html(lang="en")
                                     p= "Hello, world!"
                         block right-sidebar
                             div.span4
-                                include includes/blogger-nav
+                                p= "Sidebar"
             block footer
                 include includes/footer
 
