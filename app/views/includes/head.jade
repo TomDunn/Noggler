@@ -1,5 +1,9 @@
 head
-    title= "Hello, world!"
-    meta(charset='utf-8')
-    link(href='/public/css/bootstrap.css', rel='stylesheet', media='screen')
-    link(href='/public/css/footer.css', rel='stylesheet', media='screen')
+    block head-title
+        title= "Hello, world!"
+    block head-meta
+        meta(charset='utf-8')
+    block head-css
+        link(href='/public/css/bootstrap.css', rel='stylesheet', media='screen')
+        link(href='/public/css/footer.css', rel='stylesheet', media='screen')
+    block head-javascripts

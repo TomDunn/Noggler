@@ -1,4 +1,6 @@
 extends ../page-layout
+block head-title
+    title= "Post: " + blog_post.title
 block content-container
     div.span6
         include post

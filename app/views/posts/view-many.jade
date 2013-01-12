@@ -1,4 +1,6 @@
 extends ../page-layout
+block head-title
+    title= "Blog posts"
 block content-container
     div.span6
         each blog_post in locals.blog_posts

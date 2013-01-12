@@ -1,7 +1,9 @@
 extends page-layout
+block head-title
+    title= "Create/Edit a post"
 block content-header
     h1= "Create or edit a post"
 block content
     include posts/create-edit
 block append body-scripts
-    includes/editor-js
+    include includes/editor-js
