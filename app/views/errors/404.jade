@@ -1,13 +1,7 @@
-include ../includes/doctype
-html
-    include ../includes/head
-    body
-        include ../includes/main-nav
-        div.container-fluid
-            div.row-fluid
-                div.span2
-                    p= "sidebar"
-                div.span6
-                    div.page-header
-                        h1.text-error= "404! Not found!?"
-                    p.text-error= "The document you are looking for does not exist"
+extends ../page-layout
+block content-header
+    h1.text-error= "404! Not Found!?"
+block content
+    p.text-error= "The document you are looking for does not exist"
+block body-scripts
+

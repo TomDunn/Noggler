@@ -1,16 +1,5 @@
-include ../includes/doctype
-html
-    include ../includes/head
-    body
-        include ../includes/main-nav
-        div.container-fluid
-            div.row-fluid
-                div.span2
-                    p= "sidebar"
-                div.span6
-                    each blog_post in locals.blog_posts
-                        include post
-                div.span4
-                    include ../includes/blogger-nav
-        include ../includes/footer
-        include ../includes/common-js
+extends ../page-layout
+block content-container
+    div.span6
+        each blog_post in locals.blog_posts
+            include post

@@ -1,0 +1,30 @@
+block doctype
+    include includes/doctype
+html(lang="en")
+    block head
+        include includes/head
+    body
+        block body
+            include includes/main-nav
+            block main-container
+                div.container-fluid
+                    div.row-fluid
+                        block left-sidebar
+                            div.span2
+                                p= "sidebar"
+                        block content-container
+                            div.span6
+                                block content-header-container
+                                    div.page-header
+                                        block content-header
+                                            h1= "Blog"
+                                block content
+                                    p= "Hello, world!"
+                        block right-sidebar
+                            div.span4
+                                include includes/blogger-nav
+            block footer
+                include includes/footer
+
+            block body-scripts
+                include includes/common-js
